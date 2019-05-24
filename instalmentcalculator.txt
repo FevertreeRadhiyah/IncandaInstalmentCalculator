@@ -4,7 +4,21 @@ add_action( 'woocommerce_single_product_summary', function($price) {
 	
 								
  ?>
-	 <a title="Apply for MatressWarehouse Account" href="https://www.themattresswarehouse.co.za/apply-for-credit/"><div id="instalmentCalc">R<?php returnSinglePrice()?> /month x 18</div></a>
+ <style type="text/css">
+a:hover, a:visited, a:link, a:active
+{
+text-decoration: none !important;
+}
+a, u {
+    text-decoration: none !important;
+}
+ </style>
+<a target="_blank" href="#" style="text-decoration:none !important;">
+	<div id="instalmentCalc" data-fontsize="15" data-fontweight="normal" style="margin: 5px; padding: 0px; display: inline-block; color: rgb(102, 102, 102); background: transparent; font-family: inherit; font-size: 15px; font-weight: bold;">Incanda Account: R<?php returnSinglePrice()?> /month x 24</div>
+	   </a>
+
+<div>&nbsp;</div>
+
 
 
 	<script>
@@ -40,7 +54,7 @@ add_action('woocommerce_before_shop_loop_item_title',function($price)
 add_action( 'woocommerce_after_shop_loop_item_title', function($price) {
 							
  ?>
-	 <a title="Apply for MatressWarehouse Account" href="https://www.themattresswarehouse.co.za/apply-for-credit/"><div id="instalmentCalc"><?php products()?> /month x 18</div></a>
+	 <a title="Apply for Incanda Account" href="#"><div id="instalmentCalc">R<?php products()?> /month x 24</div></a>
 
 	<script>
 		/*! jQuery v3.3.1 | (c) JS Foundation and other contributors | jquery.org/license */
@@ -65,7 +79,7 @@ function CacheAllProducts()
            
 
 		$finalTotal = get_post_meta( $theid, '_regular_price', true);
-		$url 			= "https://www.ftapp.co.za:454/i/058ab572-665f-4e53-8bcd-9e8065edb3a7/$finalTotal"; // json source
+		$url 			= "https://www.ftapp.co.za/i/90129b66-ebb9-443d-b9ee-834a0c66f0ee/$finalTotal"; // json source
 		$cache 			= __DIR__."/json.cacheAllProducts"; // make this file in same dir
 		$force_refresh	 	= false; // dev
 		$refresh		= 60*60; // once an hour
@@ -90,6 +104,7 @@ function CacheAllProducts()
 		
 							
 		  $json_cache = $curlcontent;
+
 				
         }
          $produtslist[] = array(
@@ -152,7 +167,7 @@ function products()
 				$sale_price = get_post_meta( get_the_ID(), '_price', true);
 
 				$finalTotal = get_post_meta( get_the_ID(), '_regular_price', true);
-				$url 			= "https://www.ftapp.co.za:454/i/058ab572-665f-4e53-8bcd-9e8065edb3a7/$finalTotal"; // json source
+				$url 			= "https://www.ftapp.co.za/i/90129b66-ebb9-443d-b9ee-834a0c66f0ee/$finalTotal"; // json source
 				$cache 			= __DIR__."/json.cache.txt"; // make this file in same dir
 		
 				$handle = fopen($cache, 'wb') or die('no fopen');	
@@ -209,7 +224,7 @@ function products()
 							$sale_price = get_post_meta( get_the_ID(), '_price', true);
 
 							 $finalTotal = number_format((float)$sale_price,2,'.','');
-							 $url 			= "https://www.ftapp.co.za:454/i/058ab572-665f-4e53-8bcd-9e8065edb3a7/$finalTotal"; // json source
+							 $url 			= "https://www.ftapp.co.za/i/90129b66-ebb9-443d-b9ee-834a0c66f0ee/$finalTotal"; // json source
 								$ch = curl_init($url) or die("curl issue");
 						$curl_options = array(
 							CURLOPT_RETURNTRANSFER	=> true,
@@ -251,7 +266,11 @@ function products()
 		
         				echo   $instalmentValue;
 					}
-		
+					
+					
+
 			}
-		
+
+			
+			
 }
