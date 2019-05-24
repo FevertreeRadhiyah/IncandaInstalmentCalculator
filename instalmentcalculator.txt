@@ -1,4 +1,4 @@
-/Action below is for a single product installment calculator
+//Action below is for a single product installment calculator
 add_action( 'woocommerce_single_product_summary', function($price) {
 
 	
@@ -13,8 +13,9 @@ a, u {
     text-decoration: none !important;
 }
  </style>
-<a target="_blank" href="#" style="text-decoration:none !important;">
 	<div id="instalmentCalc" data-fontsize="15" data-fontweight="normal" style="margin: 5px; padding: 0px; display: inline-block; color: rgb(102, 102, 102); background: transparent; font-family: inherit; font-size: 15px; font-weight: bold;">Incanda Account: R<?php returnSinglePrice()?> /month x 24</div>
+	<a target="_blank" href="#" style="text-decoration:none !important;">
+	<img style="width:120px; margin-top:-5px;text-decoration: none;" title="Apply for Incanda Account" alt="Sign up with Incanda" src="https://www.myowncredit.co.za:448/images/IncandaWidget.png">
 	   </a>
 
 <div>&nbsp;</div>
@@ -266,11 +267,7 @@ function products()
 		
         				echo   $instalmentValue;
 					}
-					
-					
-
+			
 			}
-
-			
-			
+		
 }
